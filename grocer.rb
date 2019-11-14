@@ -55,13 +55,14 @@ def apply_coupons(cart, coupons)
     l = find_item_by_name_in_collection_l(name, cart)
     if exists && coupons[i][:num] == cart[l][:count]
       cart[l][:item] = "#{cart[l][:item]} W/COUPON"
-      cart[l][:price] = cart[l][:price] / coupons[i][:cost]
+      cart[l][:price] = coupons[i][:cost] / coupons[i][:num]
 
     elsif exists && coupons[i][:num] < cart[l][:count]
       cart[l][:count] = cart[l][:count] - coupons[i][:num]
       cart << cart[l]
       cart[-1][:item] = "#{cart[l][:item]} W/COUPON"
       cart[-1][:count] = coupons[i][:num]
+      cart[-1][:price] = coupons[i][:cost] / coupons[i][:num]
     end
   end
 
