@@ -49,15 +49,15 @@ def apply_coupons(cart, coupons)
   #
   # REMEMBER: This method **should** update cart
   i = 0
-  while i < coupons.count do 
+  while i < coupons.count do
     name = coupons[i][:item]
     exists = find_item_by_name_in_collection(name, cart)
     l = find_item_by_name_in_collection_l(name, cart)
     if exists && coupons[i][:num] == cart[l][:count]
       cart[l][:item] = "#{cart[l][:item]} W/COUPON"
-      
+
     else
-      
+
     end
   end
 
