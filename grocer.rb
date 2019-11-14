@@ -59,6 +59,9 @@ def apply_coupons(cart, coupons)
 
     elsif exists && coupons[i][:num] < cart[l][:count]
       cart[l][:count] = cart[l][:count] - coupons[i][:num]
+      cart << cart[l]
+      cart[-1][:item] = "#{cart[l][:item]} W/COUPON"
+      cart[-1][:count] = coupons[i][:num]
     end
   end
 
