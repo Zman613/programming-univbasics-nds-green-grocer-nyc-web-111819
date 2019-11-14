@@ -55,7 +55,7 @@ def apply_coupons(cart, coupons)
     l = find_item_by_name_in_collection_l(name, cart)
     if exists && coupons[i][:num] == cart[l][:count]
       cart[l][:item] = "#{cart[l][:item]} W/COUPON"
-      
+
     else
 
     end
