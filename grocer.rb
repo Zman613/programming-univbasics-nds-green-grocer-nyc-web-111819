@@ -37,7 +37,7 @@ def consolidate_cart(cart)
       array[l][:count] += 1
     else
       array << cart[i]
-      array[l][:count] += 1
+      array[l][:count] = 1
     end
     i += 1
   end
