@@ -73,7 +73,14 @@ def apply_clearance(cart)
   # Consult README for inputs and outputs
   #
   # REMEMBER: This method **should** update cart
-
+  i = 0
+  while i < cart.count do
+    if cart[i][:clearance]
+      cart[i][:price] = (cart[i][:price] - 0.2 * cart[i][:price]).round(2)
+    end
+    i += 1
+  end
+  cart
 end
 
 def checkout(cart, coupons)
