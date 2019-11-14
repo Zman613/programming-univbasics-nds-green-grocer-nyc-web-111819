@@ -17,7 +17,7 @@ def consolidate_cart(cart)
   # change `cart` (i.e. mutate) it. It's easier to return a new thing.
   array = []
   i = 0
-  while i < cart.count do 
+  while i < cart.count do
     name = cart[i][:item]
     exists = find_item_by_name_in_collection(name, array)
     if cart[i] == exists
