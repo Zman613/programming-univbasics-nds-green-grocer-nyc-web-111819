@@ -10,6 +10,18 @@ def find_item_by_name_in_collection(name, collection)
   hash
 end
 
+def find_item_by_name_in_collection_l(name, collection)
+  # Implement me first!
+  #
+  # Consult README for inputs and outputs
+  i = 0
+  while i < collection.count do
+    name == collection[i][:item] ? hash = [i] : nil
+    i += 1
+  end
+  hash
+end
+
 def consolidate_cart(cart)
   # Consult README for inputs and outputs
   #
@@ -20,11 +32,12 @@ def consolidate_cart(cart)
   while i < cart.count do
     name = cart[i][:item]
     exists = find_item_by_name_in_collection(name, array)
+    l = find_item_by_name_in_collection_l(name, array)
     if cart[i] == exists
-      exists[:count] += 1
+      array[l][:count] += 1
     else
       array << cart[i]
-      exists[:count] += 1
+      array[l][:count] += 1
     end
     i += 1
   end
