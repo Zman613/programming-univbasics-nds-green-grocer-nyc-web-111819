@@ -54,17 +54,14 @@ def apply_coupons(cart, coupons)
     exists = find_item_by_name_in_collection(name, cart)
     l = find_item_by_name_in_collection_l(name, cart)
     hold = []
-    if exists && coupons[i][:num] == cart[l][:count]
-      cart[l][:item] = "#{cart[l][:item]} W/COUPON"
-      cart[l][:price] = coupons[i][:cost] / coupons[i][:num]
-
-    elsif exists && coupons[i][:num] < cart[l][:count]
-      hold << cart[l]
-      cart << hold
-      cart[l][:count] = cart[l][:count] - coupons[i][:num]
-      cart[-1][:item] = "#{cart[l][:item]} W/COUPON"
-      cart[-1][:count] = coupons[i][:num]
-      cart[-1][:price] = coupons[i][:cost] / coupons[i][:num]
+    if exists && cart[l][:count] >= coupons[i][:num]
+      new_name = "#{coupons[i][:item]} W/COUPON"
+      cart[-1] = {
+        item: new_name,
+        count: coupon[i][:num],
+        price: coupon[i][:cost] / coupon[i][:num],
+        clearance: cart[l][:clearance]
+      }
     end
     i += 1
   end
@@ -75,6 +72,7 @@ def apply_clearance(cart)
   # Consult README for inputs and outputs
   #
   # REMEMBER: This method **should** update cart
+
 end
 
 def checkout(cart, coupons)
