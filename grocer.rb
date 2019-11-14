@@ -56,13 +56,13 @@ def apply_coupons(cart, coupons)
     hold = []
     if exists && cart[l][:count] >= coupons[i][:num]
       new_name = "#{coupons[i][:item]} W/COUPON"
-      cart[-1] = {
+      cart << {
         item: new_name,
-        count: coupon[i][:num],
-        price: coupon[i][:cost] / coupon[i][:num],
+        count: coupons[i][:num],
+        price: coupons[i][:cost] / coupons[i][:num],
         clearance: cart[l][:clearance]
       }
-      cart[l][:count] -= coupon[i][:num]
+      cart[l][:count] -= coupons[i][:num]
     end
     i += 1
   end
