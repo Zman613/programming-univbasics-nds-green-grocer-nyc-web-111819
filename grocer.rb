@@ -4,9 +4,10 @@ def find_item_by_name_in_collection(name, collection)
   # Consult README for inputs and outputs
   i = 0
   while i < collection.count do
-    name == collection[i][:item] ? return collection[i] : nil
+    name == collection[i][:item] ? hash = collection[i] : nil
     i += 1
   end
+  hash
 end
 
 def consolidate_cart(cart)
